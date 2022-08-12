@@ -1,1 +1,1 @@
-# vue_course
+# angular_course
