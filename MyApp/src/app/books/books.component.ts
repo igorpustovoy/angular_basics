@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../types/Book';
+import { BooksService } from './books.service';
 
 @Component({
   selector: 'app-books',
@@ -7,27 +8,20 @@ import { Book } from '../types/Book';
   styleUrls: ['./books.component.scss'],
 })
 export class BooksComponent implements OnInit {
-  books: Book[] = [
-    {
-      name: 'clean code',
-      author: 'robert c. martin',
-      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._AC_SY1000_.jpg',
-      price: 20
-    },
-    {
-      name: 'Pragmatic Programmer',
-      author: 'David Thomas',
-      src: 'https://m.media-amazon.com/images/I/51W1sBPO7tL._AC_SY780_.jpg',
-      price: 30
-    },
-  ];
-
+  books: Book[] = [];
   cart: Book[] = [];
-
   isShowing: boolean = true;
-  constructor() {}
+  // private booksService: BooksService;
 
-  ngOnInit(): void {}
+  constructor(private booksService: BooksService) {
+    // this.books = this.booksService.getBooks();
+    // this.booksService = new BooksService();
+  }
+
+  ngOnInit(): void {
+    // console.log("OnInit");
+    this.books = this.booksService.getBooks();
+  }
 
   toggleBooks(): void {
     this.isShowing = !this.isShowing;
