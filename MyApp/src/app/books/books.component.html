@@ -1,16 +1,23 @@
 <h1>Programming Books List!</h1>
-<button
+<!-- <button
   (click)="handleClick()"
   (mouseover)="handleClick()"
   [disabled]="isDisabled"
 >
   Show Books
+</button> -->
+<button (click)="toggleBooks()">
+  <ng-container *ngIf="!isShowing">Show Books</ng-container>
+  <ng-container *ngIf="isShowing">Hide Books</ng-container>
 </button>
-<input type="text" [(ngModel)]="myValue" />
-<p>{{ myValue }}</p>
-<ul>
-  <li>
-    <img width="100" [alt]="name" [src]="src" />
-    {{ name }} by {{ author }}
-  </li>
+<!-- <input type="text" [(ngModel)]="myValue" /> -->
+<!-- <p>{{ myValue }}</p> -->
+<ul *ngIf="isShowing">
+  <ng-container *ngFor="let book of books; let i = index">
+    <li>
+      {{ i + 1 }}
+      <img width="100" [alt]="book.name" [src]="book.src" />
+      {{ book.name }} by {{ book.author }}
+    </li>
+  </ng-container>
 </ul>
