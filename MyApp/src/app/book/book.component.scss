@@ -1,0 +1,13 @@
+.book {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    &:hover {
+        cursor: pointer;
+        background-color: lightgray;
+    }
+}
