@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name = 'luis ramirez';
   imgURL = 'https://picsum.photos/200/300';
+  images = [
+    'https://picsum.photos/200/300',
+    'https://picsum.photos/200/300',
+    'https://picsum.photos/200/300',
+  ]
   currentDate = new Date();
   cost = 2000;
   temperature = 25.3;
@@ -15,6 +20,8 @@ export class AppComponent {
     toppings: ['pepperoni', 'pineapple', 'cheese'],
     size: 'medium',
   }
+  blueClass = false;
+  fontSize = 16;
 
   getName() {
     return this.name;
